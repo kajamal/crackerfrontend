@@ -1,0 +1,10 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - echo Building the Docker image...
+      - docker build -t my-docker-image:latest .
+   options:
+    logging: CLOUD_LOGGING_ONLY
+    
