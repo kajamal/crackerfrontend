@@ -17,7 +17,9 @@ phases:
     commands:
       - echo Uploading to S3...
       - aws s3 sync build/ s3://teamsix.online --delete
-
+  options:
+    logging: CLOUD_LOGGING_ONLY
+  
 artifacts:
   files:
     - build/**/*
