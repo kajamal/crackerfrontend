@@ -4,7 +4,7 @@ phases:
   build:
     commands:
       - echo Building the Docker image...
-      - docker build -t frontend:latest .
-   options:
-    logging: CLOUD_LOGGING_ONLY
-    
+      - docker build -t my-docker-image:latest .
+
+options:
+  logging: CLOUD_LOGGING_ONLY
