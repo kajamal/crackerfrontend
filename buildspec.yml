@@ -7,13 +7,13 @@ phases:
     commands:
       # Log in to Amazon ECR
       - echo "Logging in to Amazon ECR..."
-      - $(aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $REPOSITORY_URI)
-
+     
   pre_build:
     commands:
       # Define AWS region, ECR repository, and Docker image tag
       - AWS_REGION=us-east-2  # Set the AWS region
-      - REPOSITORY_URI=423623860069.dkr.ecr.us-east-2.amazonaws.com/ui  # ECR repository URI
+      - REPOSITORY_URI=423623860069.dkr.ecr.us-east-2.amazonaws.com/ui
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $REPOSITORY_URI
       - IMAGE_TAG=latest  # Tag for your Docker image
       - echo "Repository URI: $REPOSITORY_URI"
       - echo "Image Tag: $IMAGE_TAG"
