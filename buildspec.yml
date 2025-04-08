@@ -14,8 +14,6 @@ phases:
       # Define ECR repository and Docker image tag
       - REPOSITORY_URI=423623860069.dkr.ecr.us-east-2.amazonaws.com/ui  # Replace with your ECR URI
       - IMAGE_TAG=latest  # Replace with your desired tag if necessary
-      - echo "Repository URI: $REPOSITORY_URI"
-      - echo "Image Tag: $IMAGE_TAG"
 
   build:
     commands:
