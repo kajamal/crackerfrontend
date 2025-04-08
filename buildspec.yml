@@ -1,0 +1,32 @@
+name: Build and Push Docker Image to ECR
+
+on:
+  push:
+    branches:
+      - main  # Trigger the workflow when pushing to the main branch
+
+env:
+  ECR_REGISTRY: 423623860069.dkr.ecr.us-east-2.amazonaws.com/ui
+  ECR_REPOSITORY: ui  # Replace with your ECR repository name
+  IMAGE_TAG: latest
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Log in to Amazon ECR
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Build Docker image
+        run: |
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+
+      - name: Push Docker image to ECR
+        run: |
+          aws ecr create-repository --repository-name $ECR_REPOSITORY || true
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+
