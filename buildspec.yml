@@ -3,7 +3,7 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      docker: 19
+      nodejs:18 
     commands:
       # Log in to Amazon ECR
       - echo "Logging in to Amazon ECR..."
