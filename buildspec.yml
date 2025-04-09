@@ -21,13 +21,19 @@ phases:
       # Build the Docker image
       - echo "Building the Docker image..."
       - docker build -t $REPOSITORY_URI:$IMAGE_TAG .
+      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
 
   post_build:
     commands:
       # Push the Docker image to ECR
       - echo "Pushing the Docker image to Amazon ECR..."
+      - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
+      - echo Writing image definitions file...
+      - printf '[{"name":"reactapp","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imageDefinitions.json
 
 artifacts:
-  files:
-    - '**/*'
+  files: 
+    - 'imageDefinitions.json'
+    # - 'appspec.yaml'
+    # - 'taskdef.json'
