@@ -13,7 +13,7 @@ function Home() {
          {/* Links to other sections */}
          <div className="dashboard-container">
            <div className="dashboard-col">
-             <Link to="/api/products">Explore Our Products</Link>
+             <Link to="/api/products">Explore Our Product</Link>
            </div>
            <div className="dashboard-col">
              <Link to="/aboutus">Learn More About Us</Link>
