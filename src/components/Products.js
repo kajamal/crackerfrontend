@@ -5,7 +5,7 @@ function Products() {
 
   useEffect(() => {
     // Fetch products data from your backend
-    fetch('http://myloader-54490939.us-east-1.elb.amazonaws.com/api/products')
+    fetch('https://svc-1036011900881.us-central1.run.app/api/products')
       .then(response => response.json())
       .then(data => setProducts(data))
       .catch(error => console.error('Error fetching products data:', error));
