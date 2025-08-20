@@ -12,7 +12,7 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - aws ecr get-login-password --region ap-northeast-3 | docker login --username AWS --password-stdin 423623860069.dkr.ecr.ap-northeast-3.amazonaws.com
-      - REPOSITORY_URI=423623860069.dkr.ecr.ap-northeast-3.amazonaws.com/nginx
+      - REPOSITORY_URI=423623860069.dkr.ecr.us-east-2.amazonaws.com/nginx
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH:=latest}
 
