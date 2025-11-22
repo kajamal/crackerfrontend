@@ -7,7 +7,7 @@ function Home() {
        <div className="container">
          <h2>Welcome kaja sharif</h2>
          <p>
-           Discover the world of delicious kaja sharif JJJJJJJJ last change made by .., crackers??
+           test1??
          </p>
 
          {/* Links to other sections */}
