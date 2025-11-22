@@ -3,7 +3,7 @@ Resources:
   - TargetService:
       Type: AWS::ECS::Service
       Properties:
-        TaskDefinition: "arn:aws:ecs:us-east-2:423623860069:task-definition/mydevTD:1"
+        TaskDefinition: "arn:aws:ecs:us-east-1:766099559515:task-definition/cracker:1"
         LoadBalancerInfo:
           ContainerName: "myapp"
           ContainerPort: 80
