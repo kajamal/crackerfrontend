@@ -14,7 +14,7 @@ steps:
 - task: Docker@2
   displayName: Build and Push Image to ACR
   inputs:
-    containerRegistry: myapp12-acr-conn   # Service connection name
+    containerRegistry: myapp12   # Service connection name
     repository: $(imageName)
     command: buildAndPush
     Dockerfile: $(dockerfilePath)
