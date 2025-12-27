@@ -2,19 +2,20 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  name: self-hosted-pool   # Your agent pool name
 
 variables:
-  acrLoginServer: myapp12.azurecr.io
   imageName: myapp
   dockerfilePath: Dockerfile
   tag: $(Build.BuildId)
 
 steps:
+- checkout: self
+
 - task: Docker@2
   displayName: Build and Push Image to ACR
   inputs:
-    containerRegistry: myapp_register_connection   # Service connection name
+    containerRegistry: myapp_register_connection
     repository: $(imageName)
     command: buildAndPush
     Dockerfile: $(dockerfilePath)
